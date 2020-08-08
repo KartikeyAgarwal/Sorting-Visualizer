@@ -1,0 +1,14 @@
+.array-container {
+    /* display :flex;
+    justify-content: center; */
+    position: absolute;
+    left: 100px;
+    /* align-self: center; */
+}
+
+.array-bar {
+    width: 2px;
+    background-color: turquoise;
+    display: inline-block;
+    margin: 0 1.5px;
+}
