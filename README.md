@@ -1,8 +1,11 @@
+## Sorting Visualizer
+
+This is the web app built using React and is used to visualize classic sorting algorithms like Quick sort, Merge sort, insertion sort etc
+
+Video Demo : https://drive.google.com/file/d/1KBDI9gtgdxwdy4mKsVYli9gGAnvuUX7W/view?usp=sharing
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-Uploading Sorting Visualizer Tool Video.mp4…
-
-
 ## Available Scripts
 
 In the project directory, you can run:
