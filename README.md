@@ -1,11 +1,14 @@
 ## Sorting Visualizer
 
-This is the web app built using React and is used to visualize classic sorting algorithms like Quick sort, Merge sort, insertion sort etc.
+This is the web app built using React and is used to visualize classic sorting algorithms.
 
-URL : https://615b4692dc63e227685f8647--sorting-visualizer-tool-kartikey.netlify.app/
+URL : https://sorting-visualizer-tool-kartikey.netlify.app/
 
 Video Demo : https://drive.google.com/file/d/1KBDI9gtgdxwdy4mKsVYli9gGAnvuUX7W/view?usp=sharing
 
+Implemented animations, effects like color changing of the bars in comparision at the instant and core functionalities were implemented using JavaScript.
+
+Algorithms include Quick Sort, Merge Sort, Insertion Sort and Bubble Sort. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
