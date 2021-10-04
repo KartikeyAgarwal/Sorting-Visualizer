@@ -180,6 +180,7 @@ render() {
 
     return (
       <div className="array-container">
+        <div>
         {array.map((value, idx) => (
           <div
             className="array-bar"
@@ -190,7 +191,7 @@ render() {
               color : "#ffffff",
             }}>{idx}</div>
         ))}
-        
+        </div>
         <button id="Generate new array" onClick={() => this.resetArray()}>Generate New Array</button>
         <button onClick={() => this.quickSort()}>Quick Sort</button>
         <button id="mergeSort"onClick={() => this.mergeSort()}>Merge Sort</button>
