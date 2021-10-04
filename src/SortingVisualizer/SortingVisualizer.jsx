@@ -9,7 +9,7 @@ import './SortingVisualizer.css';
 const ANIMATION_SPEED_MS = 2;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 260;
+const NUMBER_OF_ARRAY_BARS = 190;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -36,7 +36,7 @@ export default class SortingVisualizer extends React.Component {
   resetArray() {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-      array.push(randomIntFromInterval(5, 700));
+      array.push(randomIntFromInterval(5, 680));
     }
     this.setState({array});
   }
@@ -192,11 +192,12 @@ render() {
             }}>{idx}</div>
         ))}
         </div>
-        <button id="Generate new array" onClick={() => this.resetArray()}>Generate New Array</button>
-        <button onClick={() => this.quickSort()}>Quick Sort</button>
-        <button id="mergeSort"onClick={() => this.mergeSort()}>Merge Sort</button>
-        <button id="insertionSort"onClick={() => this.insertionSort()}>Insertion Sort</button>
-        <button id="bubbleSort"onClick={() => this.bubbleSort()}>Bubble Sort</button>
+        <br></br>
+        <button class="btns" id="Generate-new-array" onClick={() => this.resetArray()}>Generate New Array</button>
+        <button class="btns" onClick={() => this.quickSort()}>Quick Sort</button>
+        <button class="btns" id="mergeSort"onClick={() => this.mergeSort()}>Merge Sort</button>
+        <button class="btns" id="insertionSort"onClick={() => this.insertionSort()}>Insertion Sort</button>
+        <button class="btns" id="bubbleSort"onClick={() => this.bubbleSort()}>Bubble Sort</button>
         {/* <button onClick={() => this.testSortingAlgorithms()}> */}
           {/* Test Sorting Algorithms (BROKEN) */}
         {/* </button> */}

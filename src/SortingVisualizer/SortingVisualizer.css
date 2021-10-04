@@ -7,8 +7,18 @@
 }
 
 .array-bar {
-    width: 2px;
+    width: 4px;
     background-color: turquoise;
     display: inline-block;
     margin: 0 1.5px;
+}
+
+.btns {
+    color: white;
+    background-color: #bf1f2f;
+    margin-left: 1%;
+    border-radius: 3px;
+    max-width: 15%;
+    padding: 0.5%;
+    font-size: small;
 }
