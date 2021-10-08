@@ -6,10 +6,10 @@ import { getQuickSortAnimations } from '../sortingAlgorithms/quickSort.js';
 import './SortingVisualizer.css';
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 2;
+const ANIMATION_SPEED_MS = 3;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 190;
+const NUMBER_OF_ARRAY_BARS = 175;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -26,6 +26,7 @@ export default class SortingVisualizer extends React.Component {
 
     this.state = {
       array: [],
+      isDisabled: false,
     };
   }
 
@@ -41,15 +42,52 @@ export default class SortingVisualizer extends React.Component {
     this.setState({array});
   }
 
-//   disableSortButtons() {
-//       document.getElementsById("mergeSort").disabled = true;
-//       let buttonStyle = document.getElementById("mergeSort").style;
-//       document.getElementsById("mergeSort").title = DISABLED_BUTTON;
-//       buttonStyle.background = "#000000";
-//   }
+  disableSortButtons(algorithm) {
+    
+    document.getElementById("mergeSort").disabled = true;
+    document.getElementById("insertionSort").disabled = true;
+    document.getElementById("bubbleSort").disabled = true;
+    document.getElementById("quickSort").disabled = true;
+    if(algorithm === "merge")
+    {
+      document.getElementById("mergeSort").style.background = '#000000';
+      document.getElementById("insertionSort").style.background = '#eca1a6';
+      document.getElementById("bubbleSort").style.background = '#eca1a6';
+      document.getElementById("quickSort").style.background = '#eca1a6';
+    }
+    else if(algorithm === "quick")
+    {      
+      document.getElementById("mergeSort").style.background = '#eca1a6';
+      document.getElementById("insertionSort").style.background = '#eca1a6';
+      document.getElementById("bubbleSort").style.background = '#eca1a6';
+      document.getElementById("quickSort").style.background = '#000000';
+    }
+    else if(algorithm === "bubble")
+    {
+      document.getElementById("mergeSort").style.background = '#eca1a6';
+      document.getElementById("insertionSort").style.background = '#eca1a6';
+      document.getElementById("bubbleSort").style.background = '#000000';
+      document.getElementById("quickSort").style.background = '#eca1a6';
+    }
+    else if(algorithm === "insertion")
+    {
+      document.getElementById("mergeSort").style.background = '#eca1a6';
+      document.getElementById("insertionSort").style.background = '#000000';
+      document.getElementById("bubbleSort").style.background = '#eca1a6';
+      document.getElementById("quickSort").style.background = '#eca1a6';
+    }
+  }
+
+  restoreButton() {
+    document.getElementById("Generate-new-array").style.pointerEvents = 'auto'
+    document.getElementById("bubbleSort").style.pointerEvents = 'auto'
+    document.getElementById("insertionSort").style.pointerEvents = 'auto'
+    document.getElementById("mergeSort").style.pointerEvents = 'auto'
+    document.getElementById("quickSort").style.pointerEvents = 'auto'
+  }
 
 quickSort() {
-    // this.disableSortButtons();
+    this.disableSortButtons("quick");
     const animations = getQuickSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
         const isColorChange = animations[i][0] === "comparision1" || animations[i][0] === "comparision2";
@@ -77,9 +115,11 @@ quickSort() {
     // this.setState({array: sortArray})
     // const RESTORE_TIME = parseInt(ANIMATION_SPEED_MS*animations.length/2 + 3000);
     // setTimeout(() => this.restoreStoreButtons(), RESTORE_TIME);  
+    this.restoreButton();
 }
 
 mergeSort() {
+    this.disableSortButtons("merge");
     const animations = getMergeSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
         const arrayBars = document.getElementsByClassName('array-bar');
@@ -101,9 +141,11 @@ mergeSort() {
         }, i * ANIMATION_SPEED_MS);
         }
     }
+    this.restoreButton();
 }
 
 bubbleSort() {
+    this.disableSortButtons("bubble");
     const animations = getBubbleSortAnimations(this.state.array);
     for(let i=0; i<animations.length; i++)
     {
@@ -130,9 +172,11 @@ bubbleSort() {
             }, i * ANIMATION_SPEED_MS);
         }
     }
+    this.restoreButton();
 }
 
 insertionSort() {
+    this.disableSortButtons("insertion");
     const animations = getInsertionSortAnimations(this.state.array);
     for( let i=0; i<animations.length; i++)
     {
@@ -157,6 +201,7 @@ insertionSort() {
             },i * 2);
         }
     }
+    this.restoreButton();
 }
 
   // NOTE: This method will only work if sorting algorithms actually return
@@ -179,7 +224,7 @@ render() {
     const {array} = this.state;
 
     return (
-      <div className="array-container">
+      <div className="array-container noselect">
         <div>
         {array.map((value, idx) => (
           <div
@@ -193,11 +238,13 @@ render() {
         ))}
         </div>
         <br></br>
-        <button class="btns" id="Generate-new-array" onClick={() => this.resetArray()}>Generate New Array</button>
-        <button class="btns" onClick={() => this.quickSort()}>Quick Sort</button>
-        <button class="btns" id="mergeSort"onClick={() => this.mergeSort()}>Merge Sort</button>
-        <button class="btns" id="insertionSort"onClick={() => this.insertionSort()}>Insertion Sort</button>
-        <button class="btns" id="bubbleSort"onClick={() => this.bubbleSort()}>Bubble Sort</button>
+        <div>
+          <button className="btns" id="Generate-new-array" onClick={() => window.location.reload(false)}>Generate New Array / Start New Sort</button>
+          <button className="btns" id="quickSort" onClick={() => this.quickSort()}>Quick Sort</button>
+          <button className="btns" id="mergeSort" onClick={() => this.mergeSort()}>Merge Sort</button>
+          <button className="btns" id="insertionSort" onClick={() => this.insertionSort()}>Insertion Sort</button>
+          <button className="btns" id="bubbleSort" onClick={() => this.bubbleSort()}>Bubble Sort</button>
+        </div>
         {/* <button onClick={() => this.testSortingAlgorithms()}> */}
           {/* Test Sorting Algorithms (BROKEN) */}
         {/* </button> */}

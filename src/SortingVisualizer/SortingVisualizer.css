@@ -2,7 +2,7 @@
     /* display :flex;
     justify-content: center; */
     position: absolute;
-    left: 100px;
+    left: 150px;
     /* align-self: center; */
 }
 
@@ -18,7 +18,18 @@
     background-color: #bf1f2f;
     margin-left: 1%;
     border-radius: 3px;
-    max-width: 15%;
-    padding: 0.5%;
+    max-width: 25%;
+    padding: 0.7%;
     font-size: small;
+    font-weight: bold;
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
